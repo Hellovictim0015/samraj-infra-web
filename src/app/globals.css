@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* The site is designed for a light theme only. `color-scheme: light` stops browsers in
+   dark mode from switching form controls (inputs, selects, date pickers) to dark styling. */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  color-scheme: light;
+}
+
+/* Samraj Infra brand: Tailwind's amber-* classes are remapped to copper/bronze tones from the logo. */
+@theme {
+  --color-amber-50: #fbf3ea;
+  --color-amber-100: #f6e4d0;
+  --color-amber-200: #ecc9a3;
+  --color-amber-300: #e0a874;
+  --color-amber-400: #cf8549;
+  --color-amber-500: #b5651d;
+  --color-amber-600: #9a5320;
+  --color-amber-700: #7d421b;
+  --color-amber-800: #643518;
+  --color-amber-900: #4a2512;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-jakarta-sans);
+  --font-serif: var(--font-jakarta-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jakarta-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Typed text in form fields stays dark even if a field sets no text color of its own.
+   In the base layer so Tailwind classes like text-white / placeholder:* still win. */
+@layer base {
+  input,
+  select,
+  textarea {
+    color: #2a160b;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: #94a3b8;
+  }
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
